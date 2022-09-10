@@ -1,0 +1,811 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+  
+    <div class="container-fluid" data-aos="fade-up">
+      <div class="row justify-content-center">
+        <div class="col-xl-5 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1>{{hero_head}}</h1>
+          <h2>{{hero_desc}}</h2>
+          <div><a href="{% url 'homeApp:contact' %}" class="btn-get-started scrollto">Let's Create</a></div>
+        </div>
+        <div class="col-xl-4 col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="150">
+          <img src="{% static 'img/imghero.png' %}" class="img-fluid animated" alt="SoftyIT">
+        </div>
+      </div>
+    </div>
+  
+  </section><!-- End Hero -->
+  
+  <main id="main">
+  
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about ">
+      <div class="container">
+  
+        <div class="row content">
+          <div class="col-lg-6">
+            <h2>About SoftyIT</h2>
+            <h3>SoftyIT is the brainchild of some fresh youth brain.</h3>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0">
+            <p>
+              SoftyIT provieds a number of value-added solutions and best services worldwide through online. Our extensive product and service offering includes Web and App development, Graphic design, innovative web solutions, Digital marketing and more online products.
+            </p>
+            <ul>
+              <li><i class="ri-check-double-line"></i> Innovation in user experience and design</li>
+              <li><i class="ri-check-double-line"></i> High-quality supports and solutions</li>
+              <li><i class="ri-check-double-line"></i> Dedicated team work and combination</li>
+            </ul>
+          </div>
+        </div>
+  
+      </div>
+    </section><!-- End About Section -->
+  
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us">
+      <div class="container">
+  
+        <div class="row">
+          <!-- start -->
+          <div class="col-lg-3 mt-4 mt-lg-0">
+            <div class="box">
+              <span>01</span>
+              <h4>Requirements</h4>
+              <p>We comprehend your ideas in order to transform into the acceptable digital goods that meet your goals</p>
+            </div>
+          </div>
+          <div class="col-lg-3 mt-4 mt-lg-0">
+            <div class="box">
+              <span>02</span>
+              <h4>Analysis</h4>
+              <p>Our talented team properly evaluates your requirements to provide the best solution</p>
+            </div>
+          </div>
+          <div class="col-lg-3 mt-4 mt-lg-0">
+            <div class="box">
+              <span>03</span>
+              <h4>Implementation</h4>
+              <p>Our creative team of designers and developers completes the product based on design</p>
+            </div>
+          </div>
+          <div class="col-lg-3 mt-4 mt-lg-0">
+            <div class="box">
+              <span>04</span>
+              <h4>Delivery</h4>
+              <p>We deliver your desired product as soon as the product is completed and error-free</p>
+            </div>
+          </div>
+          <!-- end -->
+        </div>
+  
+      </div>
+    </section><!-- End Why Us Section -->
+  
+    <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts">
+      <div class="container">
+  
+        <div class="row counters">
+  
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">{{count_client}}</span>
+            <p>Clients</p>
+          </div>
+  
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">{{count_project}}</span>
+            <p>Projects</p>
+          </div>
+  
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">{{count_hour}}</span>
+            <p>Hours Of Support</p>
+          </div>
+  
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">{{count_worker}}</span>
+            <p>Hard Workers</p>
+          </div>
+  
+        </div>
+  
+      </div>
+    </section><!-- End Counts Section -->
+  
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container">
+  
+        <div class="section-title">
+          <h2>Services</h2>
+          {% comment %}
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+            consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
+            in iste officiis commodi quidem hic quas.
+          </p>
+          {% endcomment %}
+        </div>
+  
+        <div class="row">
+          <div class="content col-xl-5 d-flex flex-column justify-content-center">
+            <img src="{% static 'img/service_img.png' %}" class="img-fluid" alt="">
+          </div>
+          <div class="col-xl-7">
+            <div class="icon-boxes d-flex flex-column justify-content-center">
+              <div class="row">
+                <!-- start -->
+                {% for service in services %}
+                <div class="col-lg-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
+                  <div class="icon-box iconbox-{{service.service_iconbox_color}}">
+                    <div class="icon">
+                      <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke="none" stroke-width="0" fill="#f5f5f5"
+                          d="{{service.service_box_svg}}">
+                        </path>
+                      </svg>
+                      <i class="bx bx-{{service.service_icon}}"></i>
+                    </div>
+                    <h4><a href="">{{service.service_name}}</a></h4>
+                    <p>{{service.service_desc}}</p>
+                  </div>
+                </div>
+                {% endfor %}
+                <!-- end -->
+              </div>
+            </div>
+            <!-- End .content-->
+          </div>
+        </div>
+  
+      </div>
+    </section><!-- End Services Section -->
+  
+    <!-- ======= Features Section ======= -->
+    <section id="features" class="features">
+      <div class="container">
+  
+        <div class="row">
+          <!-- start -->
+          {% for name, icon, color in stacks %}
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+              <i class="{{icon}}" {{color}}></i>
+              <h3><a href="#">{{name}}</a></h3>
+            </div>
+          </div>
+          {% endfor %}
+          <!-- end -->
+          {% comment %}
+          <div class="col-lg-3 col-md-4">
+            <div class="icon-box">
+              <i class="ri-store-line" style="color: #ffbb2c;"></i>
+              <h3><a href="#">Lorem Ipsum</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+            <div class="icon-box">
+              <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i>
+              <h3><a href="">Dolor Sitema</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+            <div class="icon-box">
+              <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
+              <h3><a href="">Sed perspiciatis</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
+            <div class="icon-box">
+              <i class="ri-paint-brush-line" style="color: #e361ff;"></i>
+              <h3><a href="">Magni Dolores</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+              <i class="ri-database-2-line" style="color: #47aeff;"></i>
+              <h3><a href="">Nemo Enim</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+              <i class="ri-gradienter-line" style="color: #ffa76e;"></i>
+              <h3><a href="">Eiusmod Tempor</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+              <i class="ri-file-list-3-line" style="color: #11dbcf;"></i>
+              <h3><a href="">Midela Teren</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+              <i class="ri-price-tag-2-line" style="color: #4233ff;"></i>
+              <h3><a href="">Pira Neve</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+              <i class="ri-anchor-line" style="color: #b2904f;"></i>
+              <h3><a href="">Dirada Pack</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+              <i class="ri-disc-line" style="color: #b20969;"></i>
+              <h3><a href="">Moton Ideal</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+              <i class="ri-base-station-line" style="color: #ff5828;"></i>
+              <h3><a href="">Verdo Park</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+              <i class="ri-fingerprint-line" style="color: #29cc61;"></i>
+              <h3><a href="">Flavor Nivelanda</a></h3>
+            </div>
+          </div>
+          {% endcomment %}
+
+        </div>
+  
+      </div>
+    </section><!-- End Features Section -->
+  
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials section-bg">
+      <div class="container" data-aos="fade-up">
+  
+        <div class="section-title">
+          <h2>What clients say</h2>
+          <p>We are really happy of the positive feedback we have gotten for the quality of our services and our dedication to make every event a success.</p>
+        </div>
+  
+        <div class="owl-carousel testimonials-carousel">
+  
+          <div class="testimonial-item">
+            <p>
+              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+              Quality is always there. I always recommend SoftyIT for quality products.
+              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            </p>
+            <img src="{% static 'img/testimonials/man_demo.jpg' %}" class="testimonial-img" alt="">
+            <h3>Md Hezbullah</h3>
+            <h4>Co-Founder, Code Alap</h4>
+          </div>
+  
+          <div class="testimonial-item">
+            <p>
+              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+              Always ready with solutions – for all kinds of problems
+              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            </p>
+            <img src="{% static 'img/testimonials/man_demo.jpg' %}" class="testimonial-img" alt="">
+            <h3>Salek</h3>
+            <h4>Entrepreneur</h4>
+          </div>
+  
+          <div class="testimonial-item">
+            <p>
+              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+              They are very professional and helpful. Always delivering a good service. thank you.
+              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            </p>
+            <img src="{% static 'img/testimonials/man_demo.jpg' %}" class="testimonial-img" alt="">
+            <h3>OnGoing Tech</h3>
+            <h4>Founder</h4>
+          </div>
+  
+        </div>
+  
+      </div>
+    </section><!-- End Testimonials Section -->
+  
+    <!-- ======= Portfolio Section ======= -->
+    {% comment %}
+    <section id="portfolio" class="portfolio">
+      <div class="container" data-aos="fade-up">
+  
+        <div class="section-title">
+          <h2>Portfolio</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+            consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
+            in iste officiis commodi quidem hic quas.</p>
+        </div>
+  
+        <div class="row">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">App</li>
+              <li data-filter=".filter-card">Card</li>
+              <li data-filter=".filter-web">Web</li>
+            </ul>
+          </div>
+        </div>
+  
+        <div class="row portfolio-container">
+  
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>App 1</h4>
+                <p>App</p>
+              </div>
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-1.jpg" data-gall="portfolioGallery" class="venobox"
+                  title="App 1"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Web 3</h4>
+                <p>Web</p>
+              </div>
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-2.jpg" data-gall="portfolioGallery" class="venobox"
+                  title="Web 3"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>App 2</h4>
+                <p>App</p>
+              </div>
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-3.jpg" data-gall="portfolioGallery" class="venobox"
+                  title="App 2"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Card 2</h4>
+                <p>Card</p>
+              </div>
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-4.jpg" data-gall="portfolioGallery" class="venobox"
+                  title="Card 2"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Web 2</h4>
+                <p>Web</p>
+              </div>
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-5.jpg" data-gall="portfolioGallery" class="venobox"
+                  title="Web 2"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>App 3</h4>
+                <p>App</p>
+              </div>
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-6.jpg" data-gall="portfolioGallery" class="venobox"
+                  title="App 3"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Card 1</h4>
+                <p>Card</p>
+              </div>
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-7.jpg" data-gall="portfolioGallery" class="venobox"
+                  title="Card 1"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Card 3</h4>
+                <p>Card</p>
+              </div>
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-8.jpg" data-gall="portfolioGallery" class="venobox"
+                  title="Card 3"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Web 3</h4>
+                <p>Web</p>
+              </div>
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-9.jpg" data-gall="portfolioGallery" class="venobox"
+                  title="Web 3"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+  
+      </div>
+    </section><!-- End Portfolio Section -->
+    {% endcomment %}
+  
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team section-bg">
+      <div class="container">
+  
+        <div class="section-title">
+          <h2>Team</h2>
+          <p>SoftyIT has a team of people who are energetic and passionate about their respective fields. Our team is committed to the highest level of quality. Take a look at the team</p>
+        </div>
+  
+        <div class="row">
+
+          {% for member in team %}
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <div class="member-img">
+                <img src="/media/{{member.photo}}" class="img-fluid" alt="">
+                <div class="social">
+                  <!-- <a href=""><i class="icofont-twitter"></i></a> -->
+                  <a href="{{member.facebook}}" target="_blank"><i class="icofont-facebook"></i></a>
+                  <!-- <a href=""><i class="icofont-instagram"></i></a> -->
+                  <a href="{{member.linkedin}}" target="_blank"><i class="icofont-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>{{member.name}}</h4>
+                <span>{{member.role}}</span>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+  
+        </div>
+  
+      </div>
+    </section><!-- End Team Section -->
+
+    {% comment %}
+    <!-- ======= Pricing Section ======= -->
+    <section id="pricing" class="pricing section-bg">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="section-title">
+            <h2>Pricing</h2>
+            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          </div>
+  
+          <div class="row">
+  
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="box">
+                <h3>Free</h3>
+                <h4><sup>$</sup>0<span> / month</span></h4>
+                <ul>
+                  <li>Aida dere</li>
+                  <li>Nec feugiat nisl</li>
+                  <li>Nulla at volutpat dola</li>
+                  <li class="na">Pharetra massa</li>
+                  <li class="na">Massa ultricies mi</li>
+                </ul>
+                <div class="btn-wrap">
+                  <a href="#" class="btn-buy">Buy Now</a>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="200">
+              <div class="box featured">
+                <h3>Business</h3>
+                <h4><sup>$</sup>19<span> / month</span></h4>
+                <ul>
+                  <li>Aida dere</li>
+                  <li>Nec feugiat nisl</li>
+                  <li>Nulla at volutpat dola</li>
+                  <li>Pharetra massa</li>
+                  <li class="na">Massa ultricies mi</li>
+                </ul>
+                <div class="btn-wrap">
+                  <a href="#" class="btn-buy">Buy Now</a>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
+              <div class="box">
+                <h3>Developer</h3>
+                <h4><sup>$</sup>29<span> / month</span></h4>
+                <ul>
+                  <li>Aida dere</li>
+                  <li>Nec feugiat nisl</li>
+                  <li>Nulla at volutpat dola</li>
+                  <li>Pharetra massa</li>
+                  <li>Massa ultricies mi</li>
+                </ul>
+                <div class="btn-wrap">
+                  <a href="#" class="btn-buy">Buy Now</a>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
+              <div class="box">
+                <span class="advanced">Advanced</span>
+                <h3>Ultimate</h3>
+                <h4><sup>$</sup>49<span> / month</span></h4>
+                <ul>
+                  <li>Aida dere</li>
+                  <li>Nec feugiat nisl</li>
+                  <li>Nulla at volutpat dola</li>
+                  <li>Pharetra massa</li>
+                  <li>Massa ultricies mi</li>
+                </ul>
+                <div class="btn-wrap">
+                  <a href="#" class="btn-buy">Buy Now</a>
+                </div>
+              </div>
+            </div>
+  
+          </div>
+  
+        </div>
+      </section>
+    <!-- End Pricing Section -->
+    {% endcomment %}
+  
+    <!-- ======= Frequently Asked Questions Section ======= -->
+    <section id="faq" class="faq">
+      <div class="container" data-aos="fade-up">
+  
+        <div class="section-title">
+          <h2>Frequently Asked Questions</h2>
+          {% comment %}
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+            consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
+            in iste officiis commodi quidem hic quas.</p> {% endcomment %}
+        </div>
+  
+        <div class="faq-list">
+          <ul>
+            <li data-aos="fade-up" data-aos="fade-up" data-aos-delay="100">
+              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" class="collapse"
+                href="#faq-list-1">How do I place an order? <i
+                  class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-1" class="collapse show" data-parent=".faq-list">
+                <p>
+                  You just hit the get started or build button or send a message to us with your project details. Our team will communicate with you as soon as possible.
+                </p>
+              </div>
+            </li>
+  
+            <li data-aos="fade-up" data-aos-delay="200">
+              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-2"
+                class="collapsed">Does SoftyIT give a simple solution instead of a project? <i
+                  class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-2" class="collapse" data-parent=".faq-list">
+                <p>
+                  Of course, SoftyIT offers a variety of solutions rather than just one project based on some conditions.
+                </p>
+              </div>
+            </li>
+  
+            <li data-aos="fade-up" data-aos-delay="300">
+              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-3"
+                class="collapsed">How is SoftyIT's support system? <i
+                  class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-3" class="collapse" data-parent=".faq-list">
+                <p>
+                  It varies product to product. For just getting support, you have to talk with us.
+                </p>
+              </div>
+            </li>
+  
+            <li data-aos="fade-up" data-aos-delay="400">
+              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-4"
+                class="collapsed">How does SoftyIT accept payment? <i
+                  class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-4" class="collapse" data-parent=".faq-list">
+                <p>
+                  We accpect all payment systems in BD and also international payment systems.
+                </p>
+              </div>
+            </li>
+  
+          </ul>
+        </div>
+  
+      </div>
+    </section><!-- End Frequently Asked Questions Section -->
+  
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact section-bg">
+      <div class="container" data-aos="fade-up">
+  
+        <div class="section-title">
+          <h2>Contact</h2>
+          <p>If you are interested in working with us and looking for someone like us, please let us send a 'hi' to us.</p>
+        </div>
+  
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="message-box mb-4">
+              <i class="bx bx-message-alt-dots"></i>
+              <h3>Let's start a project together!</h3>
+              <a href="{% url 'homeApp:contact' %}" class="btn-message scrollto">Send Message</a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="info-box mb-4">
+              <i class="bx bx-map"></i>
+              <h3>Our Address</h3>
+              <p>Sukrabad 71/1/A, Dhanmondi, Dhaka, Bangladesh</p>
+            </div>
+          </div>
+  
+          <div class="col-lg-3 col-md-6">
+            <div class="info-box  mb-4">
+              <i class="bx bx-envelope"></i>
+              <h3>Email Us</h3>
+              <p><a href="mailto:info@softyit.com" style="color:#000;">info@softyit.com</a></p>
+            </div>
+          </div>
+  
+          <div class="col-lg-3 col-md-6">
+            <div class="info-box  mb-4">
+              <i class="bx bx-phone-call"></i>
+              <h3>Call Us</h3>
+              <p><a href="tel:+8801704965042" style="color:#000;">+880 1704965042</a></p>
+            </div>
+          </div>
+  
+        </div>
+  
+      </div>
+    </section><!-- End Contact Section -->
+  
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+  
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+  
+          <div class="col-lg-4 col-md-6 footer-contact">
+            <h3>SoftyIT</h3>
+            <p>
+              Sukrabad 71/1/A<br>
+              Dhanmondi, Dhaka<br>
+              Bangladesh<br><br>
+              <strong>Phone:</strong> <a href="tel:+8801704965042" style="color:#fff;"> +880 1704965042</a><br>
+              <strong>Email:</strong><a href="mailto:info@softyit.com" style="color:#fff;"> info@softyit.com</a><br>
+            </p>
+          </div>
+
+          {% comment %}
+          <div class="col-lg-2 col-md-6 footer-links">
+                  <h4>Useful Links</h4>
+                  <ul>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                  </ul>
+                </div>
+      
+                <div class="col-lg-3 col-md-6 footer-links">
+                  <h4>Our Services</h4>
+                  <ul>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                  </ul>
+                </div>
+                {% endcomment %}
+  
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Join Our Newsletter</h4>
+            <p>New informations, delivered to you.</p>
+            <form method="POST">
+              {% csrf_token %}
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+            {% if success_sub %}
+            <h4>{{success_sub}}</h4>
+            {% endif %}
+          </div>
+  
+          <div class="col-lg-4 col-md-6 footer-newsletter mt-2">
+            <h4 class="text-md-right">We are on social media</h4>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+              <a href="https://www.facebook.com/softyit" class="facebook"><i class="bx bxl-facebook"></i></a>
+              {% comment %}
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              {% endcomment %}
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  
+    <div class="container">
+  
+      <div class="copyright-wrap d-md-flex py-4 row">
+        <div class="col-md-12">
+          <div class="copyright text-center">
+            &copy; Copyright <strong><span>SoftyIT</span></strong>. All Rights Reserved
+          </div>
+  
+        </div>
+        {% comment %}
+        <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        </div>
+        {% endcomment %}
+      </div>
+  
+    </div>
+  </footer><!-- End Footer -->
+
+{% endblock %}
